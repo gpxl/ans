@@ -1,0 +1,5 @@
+name: Attack and Sustain
+markdown: redcarpet
+pygments: true
+
+exclude: [assets, 'css/scss', deploy, Gemfile, Gemfile.lock, README.md, Rakefile, ey.yml, params.json]
