@@ -3,17 +3,22 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>{{ page.title }}</title>
+  <title>{{ site.name }} : {{ site.posts.first.title }}</title>
+  <meta name="description" content="{{ site.posts.first.title }} on Attack and Sustain">
+  <meta property="og:image" content="http://img.youtube.com/vi/{{ site.posts.first.video_id }}/0.jpg"/>
+  <meta property="og:title" content="{{ site.posts.first.title }}"/>
+  <meta property="og:url" content="http://attackandsustain.com"/>
+  <meta property="og:site_name" content="{{ site.name }}"/>
+  <meta property="og:type" content="awesome"/>
   <meta name="viewport" content="width=device-width">
   <link rel="stylesheet" href="/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/css/main.css">
-  <script type='text/javascript' src='/js/mc.js'></script>
 </head>
 <body>
   <div class="container">
     <div class="row header">
       <div class="col-sm-12 text-center">
-        <h1 class="title"><a href="/">{{ site.name }}</a></h1>
+        <p><a href="http://attackandsustain.com"><img src="/images/logo.png"></a></p>
+        <h1 class="title"><a href="http://attackandsustain.com">Attack and Sustain</a></h1>
         <h4>Curated Music Videos : Once Per Day</h4>
         <hr>
       </div>

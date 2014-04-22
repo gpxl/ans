@@ -1,9 +1,9 @@
 ---
 layout: default
-title:
+title: "Attack and Sustain : Curated Music Videos"
 ---
 {% for post in site.posts | limit: 1 %}
-<iframe width="853" height="480" src="//www.youtube-nocookie.com/embed/{{ post.video_id }}?rel=0" frameborder="0" allowfullscreen></iframe>
+<iframe width="853" height="480" src="//www.youtube-nocookie.com/embed/{{ post.video_id }}?rel=0&vq=hd720" frameborder="0" allowfullscreen></iframe>
 <h5>Love it? <a href="http://www.amazon.com/gp/product/{{post.amazon_id}}/ref=as_li_qf_sp_asin_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN={{post.amazon_id}}&linkCode=as2&tag=shnomo-20">Get it at Amazon</a></h5>
 <img src="http://ir-na.amazon-adsystem.com/e/ir?t=shnomo-20&l=as2&o=1&a={{post.amazon_id}}" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
 {% endfor %}

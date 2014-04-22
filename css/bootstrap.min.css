@@ -63,6 +63,10 @@ blockquote {
   color: #999;
 }
 
-.col-sm-2 .nav>li>a {
+h1.title {
+  display: none;
+}
 
+.header h4 {
+  margin: -90px 0 90px 200px;
 }
