@@ -3,3 +3,4 @@ markdown: redcarpet
 pygments: false
 future: false
 exclude: [assets, 'css/scss', deploy, Gemfile, Gemfile.lock, README.md, Rakefile, ey.yml, params.json]
+permalink: /:title
