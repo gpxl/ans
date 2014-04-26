@@ -1,18 +1,15 @@
----
-layout: default
----
 <div id="player"></div>
-<br><br>
+{% if page.previous %}
+<div id="next_video_link" class="alert alert-danger hide">
+  <strong>Wasn't that awesome?</strong> How about another video? &gt; <a href="{{ page.previous.url }}">{{ page.previous.title }}</a>
+</div>
+{% endif %}
 <div class="row">
   <div class="col-sm-12 text-center">
     <p>
       <a href="http://www.amazon.com/gp/product/{{page.amazon_id}}/ref=as_li_qf_sp_asin_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN={{page.amazon_id}}&linkCode=as2&tag=shnomo-20">Get it at Amazon</a>
       :
       <a href="https://play.spotify.com/user/gerlandop/playlist/{{ page.spotify_id }}">Listen to it on Spotify</a>
-      {% if page.previous %}
-      :
-      Next Video &gt; <a href="{{ page.previous.url }}">{{ page.previous.title }}</a>
-      {% endif %}
     </p>
   </div>
 </div>

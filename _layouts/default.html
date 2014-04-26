@@ -50,17 +50,19 @@
           videoId: video_id,
           playerVars: {rel: 0},
           events: {
-      //'onReady': onPlayerReady,
-      'onStateChange': onPlayerStateChange
-    }
-  });
+            //'onReady': onPlayerReady,
+            'onStateChange': onPlayerStateChange
+          }
+        });
       }
       function onPlayerReady(event) {
         event.target.playVideo();
       }
       function onPlayerStateChange(event) {
         if (event.data == (YT.PlayerState.ENDED || YT.PlayerState.PAUSED)) {
-          console.log(event.data)
+          document.getElementById('next_video_link').className = document.getElementById('next_video_link').className.replace(/\bhide\b/,'show');
+        } else if (event.data == (YT.PlayerState.PLAYING)) {
+          document.getElementById('next_video_link').className = document.getElementById('next_video_link').className.replace(/\bshow\b/,'hide');
         }
       }
 
@@ -68,7 +70,6 @@
         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
       ga('create', 'UA-50289315-1', 'attackandsustain.com');
       ga('send', 'pageview');
 
