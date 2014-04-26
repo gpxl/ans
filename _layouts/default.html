@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>{{ site.name }} : {{ site.posts.first.title }}</title>
+  <title>{{ page.title || site.posts.first.title }} at {{ site.name }}</title>
   <meta name="description" content="{{ site.posts.first.title }} on Attack and Sustain">
   <meta property="og:image" content="http://img.youtube.com/vi/{{ site.posts.first.video_id }}/0.jpg"/>
   <meta property="og:title" content="{{ site.posts.first.title }}"/>
@@ -20,7 +20,7 @@
   <div class="container">
     <div class="row header">
       <div class="col-sm-12 text-center">
-        <p><a href="http://attackandsustain.com"><img src="/images/logo.png"></a></p>
+        <p><a href="/"><img src="/images/logo.png"></a></p>
         <h1 class="title"><a href="http://attackandsustain.com">Attack and Sustain</a></h1>
         <h4>Curated Music Videos : Once Per Day</h4>
         <hr>
@@ -37,6 +37,33 @@
       </div>
     </div>
     <script>
+      var tag = document.createElement('script');
+      tag.src = "https://www.youtube.com/iframe_api";
+      var firstScriptTag = document.getElementsByTagName('script')[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+      var player;
+      function onYouTubeIframeAPIReady() {
+        player = new YT.Player('player', {
+          height: '480',
+          width: '853',
+          videoId: video_id,
+          playerVars: {rel: 0},
+          events: {
+      //'onReady': onPlayerReady,
+      'onStateChange': onPlayerStateChange
+    }
+  });
+      }
+      function onPlayerReady(event) {
+        event.target.playVideo();
+      }
+      function onPlayerStateChange(event) {
+        if (event.data == (YT.PlayerState.ENDED || YT.PlayerState.PAUSED)) {
+          console.log(event.data)
+        }
+      }
+
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
