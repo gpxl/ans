@@ -1,0 +1,23 @@
+---
+layout: default
+title: "Video Archive"
+---
+{% assign counter = '' %}
+<div class="row">
+  {% for page in site.posts %}
+  {% capture date %}{{ counter }}*{% endcapture %}
+  {% capture temp %}{{ counter }}*{% endcapture %}
+  {% assign counter = temp %}
+  {% if counter == "*****" %}
+  {% assign counter = "*" %}
+</div>
+<div class="row">
+  {% endif %}
+  <div class="col-sm-3 text-center">
+    <p>
+      <a href="{{ page.url }}" class="thumbnail"><img src="http://img.youtube.com/vi/{{ page.video_id }}/1.jpg"></a>
+      <div class="caption">{{ page.title }}</div>
+    </p>
+  </div>
+  {% endfor %}
+</div>

@@ -30,6 +30,11 @@
       <div class="col-sm-12 text-center">
         {{ content }}
         <hr>
+        {% if page.title != "Video Archive" %}
+        <p>
+          <a href="/archive">Previous featured videos</a>
+        </p>
+        {% endif %}
         <p>
           <a href="http://www.twitter.com/attacknsustain" class="general fi-social-twitter"></a>
           <a href="https://www.facebook.com/attackandsustain" class="general fi-social-facebook"></a>
