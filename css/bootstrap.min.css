@@ -99,7 +99,8 @@ h1.title {
   font-weight: normal;
   font-style: normal;
 }
-
+.fi-social-amazon:before,
+.fi-social-spotify:before,
 .fi-social-twitter:before,
 .fi-social-facebook:before
 {
@@ -115,9 +116,31 @@ h1.title {
   color: white;
   background: grey;
   padding: 5px 8px;
-  border-radius: 32px;
+  margin: 10px;
   font-size: 28px;
 }
 
+.fi-heart:before,
+.fi-marker:before
+{
+  font-family: "foundation-icons";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  text-decoration: inherit;
+}
+
+.fi-social-amazon:before { content: "\f1b6"; }
+.fi-heart:before { content: "\f159"; }
+.fi-marker:before { content: "\f172"; }
+.fi-social-spotify:before { content: "\f1dd"; }
 .fi-social-twitter:before { content: "\f1e4"; }
 .fi-social-facebook:before { content: "\f1c4"; }
+
+.tooltip.top {
+  margin-top: -15px;
+}
