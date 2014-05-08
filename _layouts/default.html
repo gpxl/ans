@@ -27,9 +27,13 @@
         <hr>
       </div>
     </div>
+  </div>
+  <div class="text-center">
+    {{ content }}
+  </div>
+  <div class="container">
     <div class="row">
       <div class="col-sm-12 text-center">
-        {{ content }}
         <hr>
         <p>
           <a href="http://www.twitter.com/attacknsustain">Attack and Sustain</a> is curated with <i class="fi-heart"></i> by <a href="http://www.twitter.com/gpxl">@gpxl</a> in Portland Oregon.
@@ -41,40 +45,41 @@
         {% endif %}
       </div>
     </div>
-    <script>
-      var tag = document.createElement('script');
-      tag.src = "https://www.youtube.com/iframe_api";
-      var firstScriptTag = document.getElementsByTagName('script')[0];
-      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+  </div>
+  <script>
+    var tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-      var player;
-      function onYouTubeIframeAPIReady() {
-        player = new YT.Player('player', {
-          height: '480',
-          width: '853',
-          videoId: video_id,
-          playerVars: {
-            rel: 0,
-            iv_load_policy: 3,
-            modestbranding: 1
-          },
-          events: {
+    var player;
+    function onYouTubeIframeAPIReady() {
+      player = new YT.Player('player', {
+        height: '480',
+        width: '853',
+        videoId: video_id,
+        playerVars: {
+          rel: 0,
+          iv_load_policy: 3,
+          modestbranding: 1
+        },
+        events: {
             //'onReady': onPlayerReady,
             'onStateChange': onPlayerStateChange
           }
         });
+    }
+    function onPlayerReady(event) {
+      event.target.playVideo();
+    }
+    function onPlayerStateChange(event) {
+      if (event.data == (YT.PlayerState.ENDED || YT.PlayerState.PAUSED)) {
+        document.getElementById('next_video_link').className = document.getElementById('next_video_link').className.replace(/\bhide\b/,'show');
+      } else if (event.data == (YT.PlayerState.PLAYING)) {
+        document.getElementById('next_video_link').className = document.getElementById('next_video_link').className.replace(/\bshow\b/,'hide');
       }
-      function onPlayerReady(event) {
-        event.target.playVideo();
-      }
-      function onPlayerStateChange(event) {
-        if (event.data == (YT.PlayerState.ENDED || YT.PlayerState.PAUSED)) {
-          document.getElementById('next_video_link').className = document.getElementById('next_video_link').className.replace(/\bhide\b/,'show');
-        } else if (event.data == (YT.PlayerState.PLAYING)) {
-          document.getElementById('next_video_link').className = document.getElementById('next_video_link').className.replace(/\bshow\b/,'hide');
-        }
-      }
-      $('.tooltips').tooltip();
-    </script>
-  </body>
-  </html>
+    }
+    $('.tooltips').tooltip();
+  </script>
+</body>
+</html>
