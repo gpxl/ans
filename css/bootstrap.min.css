@@ -144,3 +144,7 @@ h1.title {
 .tooltip.top {
   margin-top: -15px;
 }
+
+.video-title {
+  display: inline-block;
+}
